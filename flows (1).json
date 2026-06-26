@@ -1,0 +1,114 @@
+[
+    {
+        "id": "64ee1ad421cdcade",
+        "type": "subflow",
+        "name": "cowsay",
+        "info": "",
+        "category": "WorldSkills",
+        "in": [
+            {
+                "x": 60,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "bb4ee4892bd00cf4"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 340,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "bb4ee4892bd00cf4",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [
+            {
+                "name": "IP",
+                "type": "str",
+                "value": "",
+                "ui": {
+                    "icon": "font-awesome/fa-hand-pointer-o",
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "str"
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "Password",
+                "type": "cred",
+                "ui": {
+                    "icon": "font-awesome/fa-address-book",
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "cred"
+                        ]
+                    }
+                }
+            }
+        ],
+        "meta": {
+            "module": "node-red-contrib-cowsay0417",
+            "type": "cowsay",
+            "version": "0.0.1",
+            "author": "Chikako Funaki <chikako.funaki.sq@astemo.com>",
+            "desc": "Simple cowsay node",
+            "keywords": "node-red, cowsay",
+            "license": "Apache-2.0"
+        },
+        "color": "#3FADB5",
+        "icon": "font-awesome/fa-anchor"
+    },
+    {
+        "id": "bb4ee4892bd00cf4",
+        "type": "function",
+        "z": "64ee1ad421cdcade",
+        "name": "function 1",
+        "func": "msg.payload = cowsay2.say(String(msg.payload));\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "cowsay2",
+                "module": "cowsay2"
+            }
+        ],
+        "x": 200,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "68b9c8d437fc3fe7",
+        "type": "subflow:64ee1ad421cdcade",
+        "z": "8c069dda2246ccd8",
+        "name": "",
+        "env": [
+            {
+                "name": "Password",
+                "type": "cred"
+            }
+        ],
+        "x": 440,
+        "y": 280,
+        "wires": [
+            [
+                "aeaec0767f241c58"
+            ]
+        ]
+    }
+]
